@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "201378606382",
+    "project_id": "combinations-29f42",
+    "storage_bucket": "combinations-29f42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201378606382:android:b1a23f9300728f03d99ebf",
+        "android_client_info": {
+          "package_name": "com.appstation.combinations"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbdoNEPiUNrQj9w2NjHnsCwaWXXFipG5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

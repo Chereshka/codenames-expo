@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-export const LoupeSvg = ({ size = 24, color = '#000000' }) => {
+export const LoupeSvg = ({ size = 32, color = '#ffffff90' }) => {
   return (
     <Svg
       width={size}

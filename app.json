@@ -18,8 +18,15 @@
       "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true,
       "bundleIdentifier": "com.appstation.combinations",
+      "newArchEnabled": false,
       "infoPlist": {
-        "CFBundleAllowMixedLocalizations": true
+        "GADApplicationIdentifier": "ca-app-pub-1851068468056357~7769105650",
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork"
+          }
+        ],
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
       }
     },
     "android": {
@@ -50,6 +57,12 @@
           "ios": {
             "useFrameworks": "static"
           }
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "ios_app_id": "ca-app-pub-1851068468056357~7769105650"
         }
       ],
       "expo-font",

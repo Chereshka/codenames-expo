@@ -1,9 +1,17 @@
-import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+    
 import { STYLES } from '@/styles'
 import { 
   GearSvg, 
-  PlaySvg 
+  PlaySvg,
+  LoupeSvg,
+  FourTilesSvg,
+  ThreeBarsSvg,
+  QuestionSvg,
+  CrownSvg
 } from '@/icons'
 import { useDispatch } from 'react-redux'
 import { setOpenModal } from '@/redux/Slices/Navigation'
@@ -22,6 +30,8 @@ const Home = () => {
   }
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{ gap: STYLES.PADDING.MIDDLE, marginBottom: STYLES.PADDING.MIDDLE}}>
       <Pressable style={{ alignSelf: 'flex-end' }} onPress={openSettings}>
         <GearSvg />
       </Pressable>
@@ -33,8 +43,8 @@ const Home = () => {
             borderColor: 'gray',
             fontSize: 20,
             fontWeight: '700',
-            width: 24,
-            height: 24,
+            width: 28,
+            height: 28,
             borderRadius: 6,
             textAlign: 'center',
             transform: [{
@@ -61,58 +71,62 @@ const Home = () => {
 
       <WideTile
         onPress={() => { }}
-        title={`DAILY GAME #${lastGame.number}`}
-        text={lastGame.date}
-        backgroundColor='#5ccd71'
-        shadowColor="#42b158"
+        title={`YESTERDFAY'S ANSWERS`}
+        text={`GAME BY JANURY 22, 2025`}
+        backgroundColor='#ef946a'
+        shadowColor="#ca7e5c"
         points={{
           current: 134,
           max: 247,
-          fillColor: "#4eba63",
-          valueColor: "#42b158"
+          fillColor: "#d9855f",
+          valueColor: "#c37755"
         }}
-        Icon={GearSvg}
+        Icon={LoupeSvg}
       />
 
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: STYLES.PADDING.MIDDLE }}>
         <SquareTile
           onPress={() => { }}
-          title={`DAILY GAME #${lastGame.number}`}
+          title="ARCHIVE"
           text={lastGame.date}
-          backgroundColor='#5ccd71'
-          shadowColor="#42b158"
+          backgroundColor='#52a6f7'
+          shadowColor="#3d8fdc"
 
-          Icon={PlaySvg}
+          Icon={FourTilesSvg}
         />
         <SquareTile
           onPress={() => { }}
-          title={`DAILY GAME #${lastGame.number}`}
+          title="STATISTICS"
           text={lastGame.date}
-          backgroundColor='#5ccd71'
-          shadowColor="#42b158"
-
-          Icon={GearSvg}
+          backgroundColor='#c275eb'
+          shadowColor="#a75ad1"
+          Icon={ThreeBarsSvg}
         />
         <SquareTile
           onPress={() => { }}
-          title={`DAILY GAME #${lastGame.number}`}
+          title="HOW TO"
           text={lastGame.date}
-          backgroundColor='#5ccd71'
-          shadowColor="#42b158"
+          backgroundColor='#60d4cd'
+          shadowColor="#4bb8b1"
 
-          Icon={GearSvg}
+          Icon={QuestionSvg}
         />
         <SquareTile
           onPress={() => { }}
-          title={`DAILY GAME #${lastGame.number}`}
+          title="PREMIUM"
           text={lastGame.date}
-          backgroundColor='#5ccd71'
-          shadowColor="#42b158"
+          backgroundColor='#ffd980'
+          shadowColor="#deb658"
 
-          Icon={GearSvg}
+          Icon={CrownSvg}
         />
-      </View>
-
+          </View>
+          </View>
+      </ScrollView>
+         <BannerAd
+      unitId={__DEV__ ? TestIds.BANNER : 'YOUR_PRODUCTION_BANNER_AD_UNIT_ID'}
+      size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+    />
     </SafeAreaView>
   )
 }
@@ -123,10 +137,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#eff6fb',
     flex: 1,
-    paddingTop: STYLES.PADDING.EXTRA_BIG,
     paddingLeft: STYLES.PADDING.MIDDLE,
-    paddingRight: STYLES.PADDING.MIDDLE,
-    gap: STYLES.PADDING.MIDDLE,
+    paddingRight: STYLES.PADDING.MIDDLE
   },
   gearButton: { alignSelf: 'flex-end' },
 

@@ -104,13 +104,15 @@ const styles = StyleSheet.create({
 
     },
     title: {
-        color: 'white'
+        color: 'white',
+        fontSize: 18,
+        fontWeight: '700'
     },
     text: {
         color: 'white'
     },
     pointContainer: {
-        height: 35,
+        height: 30,
         borderRadius: 20
     },
     pointBackground: {
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
     pointsText: {
         color: 'white',
         position: 'absolute',
-        left: STYLES.PADDING.SMALL,
-        top: STYLES.PADDING.SMALL
+        left: 10,
+        top: 6
     }
 })

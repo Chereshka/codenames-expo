@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import Header from "./Header";
 import Scorebar from "@/components/Game/Scorebar";
 import Foundlist from "@/components/Game/Foundlist";
@@ -44,6 +44,7 @@ export default function Game() {
   const [hints, setHints] = useState<string[]>([]);
 
   useEffect(() => {
+    Alert.alert("hear",id)
     const Load = async () => {
       if (id === "-1") {
         dispatch(loadDailyPuzzle());

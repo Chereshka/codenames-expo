@@ -7,6 +7,7 @@ import { getPuzzleIndexForDate, syncPieces } from "@/utils/puzzle";
 import AES from "crypto-js/aes";
 import enc from "crypto-js/enc-utf8";
 import { player } from "@/components/wrappers/PostHydration";
+import { Alert } from "react-native";
 // import { v4 as uuidv4 } from "uuid";
 
 type MessageBubble = {
@@ -244,6 +245,8 @@ export const loadDailyPuzzle = createAsyncThunk(
         },
       });
       const data = await response.json();
+      console.log(`v2/puzzle/daily?offset=${getPuzzleIndexForDate(new Date())}`, data);
+
       if (!response.ok) throw new Error("Error while loading puzzles");
       const bytes = AES.decrypt(
         data.puzzles,
@@ -261,6 +264,7 @@ export const loadDailyPuzzle = createAsyncThunk(
 export const loadPuzzleById = createAsyncThunk(
   "game/loadPuzzle",
   async (id: number, { fulfillWithValue, rejectWithValue }) => {
+
     try {
       const GET_URL =
         process.env.EXPO_PUBLIC_API_URL + `v2/puzzle/load?id=${id}`;
@@ -271,6 +275,8 @@ export const loadPuzzleById = createAsyncThunk(
         },
       });
       const data = await response.json();
+      console.log("loadPuzzleByIddata", data);
+      Alert.alert("game/loadPuzzle success")
       if (!response.ok) throw new Error("Error while loading puzzles");
       const bytes = AES.decrypt(
         data.puzzle,
@@ -279,6 +285,7 @@ export const loadPuzzleById = createAsyncThunk(
       const originalText = bytes.toString(enc);
       return fulfillWithValue(JSON.parse(originalText));
     } catch (err) {
+      Alert.alert("game/loadPuzzle error", process.env.EXPO_PUBLIC_API_URL + " >" + err.message)
       const error: Error = err as Error;
       return rejectWithValue(error.message);
     }
